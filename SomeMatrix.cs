@@ -73,38 +73,6 @@ internal class SomeMatrix
         return ReversedMatrix;
     }
 
-
-    /// <returns>левая нижняя треугольная матрица</returns>
-    //public static double[][] CholeskyMethod(double[][] A)
-    //{
-    //    var Lmatrix = new double[A.Length][];
-    //    for (int i = 0; i < A.Length; i++)
-    //    {
-    //        Lmatrix[i] = new double[i + 1];
-
-    //        double temp;
-    //        //считаем слева от диагонали
-    //        for (int j = 0; j < i; j++)
-    //        {
-    //            temp = 0;
-    //            for (int k = 0; k < j; k++)
-    //            {
-    //                temp += Lmatrix[i][k] * Lmatrix[j][k];
-    //            }
-    //            Lmatrix[i][j] = (A[i][j] - temp) / Lmatrix[j][j];
-    //        }
-
-    //        //считаем диагональ
-    //        temp = A[i][i];
-    //        for (int k = 0; k < i; k++)
-    //        {
-    //            temp -= Lmatrix[i][k] * Lmatrix[i][k];
-    //        }
-    //        Lmatrix[i][i] = Math.Sqrt(temp);
-    //    }
-    //    return Lmatrix;
-    //}
-
     /// <returns>левая нижняя треугольная матрица</returns>
     public static double[][] CholeskyMethod(double[][] A)
     {
@@ -135,7 +103,7 @@ internal class SomeMatrix
         return L;
     }
 
-    public static double[] ForwardSubstitution(double[][] L, double[] b)
+    public static double[] Forward(double[][] L, double[] b)
     {
         int n = L.Length;
         double[] y = new double[n];
@@ -153,7 +121,7 @@ internal class SomeMatrix
         return y;
     }
 
-    public static double[] BackwardSubstitution(double[][] U, double[] y)
+    public static double[] Backward(double[][] U, double[] y)
     {
         int n = U.Length;
         double[] x = new double[n];
